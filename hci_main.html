@@ -1,139 +1,237 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-
-
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-  
-
-  
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  
-
-  
-
-  
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  
-
-  
-
-  <style type="text/css">
-    html, body {
-    margin: 0;
-    padding: 0;
-    border: 0;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Collapsible Sidebars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <style>
+.container {
+     padding-right: 0; /*15px in bootstrap.css*/
+     padding-left: 0;  /*idem*/
+     margin-right: 0 !important;
+     margin-left: 0 !important;
+     width: 100%;
+     height: 100% !important;
 }
 
-#topbar{
-    z-index: 9999999;
-    background: red;
-    display: block;
+.top *{
+
+    background-color: cyan;
 }
 
-#A, #B {
-    position: absolute;
-}
-#A {
-    top: 100px;
-    width: 200px;
-    bottom: 0px;
-    background:orange;
-}
-#B {
-    top: 100px;
-    left: 200px;
-    right: 0;
-    bottom: 0px;
-    background:green;
-}
-#BB {
-    top: 0px;
-    left: 0px;
-    right: 0;
-    bottom: 0px;
-    background:green;
-}
 
-#AIN{
+#control-stuff{
     width: 100%;
     height: 100px;
-    background: blue;
+    background: red;
+}
+        html,
+        body {
+            height: 100%;
+        }
+        .jumbotron {
+            margin-top: 30px;
+        }
+        #content,
+        .sidebar {
+            min-height: 100% !important; 
+        }
+
+#content{
+    overflow-y: scroll;
+    max-height: 100%;
+    margin-top: 50px; 
 }
 
-#parent{
-    position:absolute;
-    height:100%;
-    margin:0;
-    padding:0;
-    width:100%;
-}
-  </style>
-
-  <title></title>
-
-  
-    
-
-
-
-
-<script type='text/javascript'>//<![CDATA[
-$(window).load(function(){
-$('button').toggle(
-
-function() {
-    $('#B').animate({left: 0})
-}, function() {
-    $('#B').animate({left:200})
-})
-
-$("#A").resizable();
-$('#A').resize(function(){
-   $('#B').width($("#parent").width()-$("#A").width()); 
-});
-$(window).resize(function(){
-   $('#B').width($("#parent").width()-$("#A").width()); 
-   $('#A').height($("#parent").height()); 
-});
-
-});//]]> 
-
-
-
-</script>
-
-  
+        #row-main {
+            overflow-x: hidden; /* necessary to hide collapsed sidebars */
+            height: 100%;
+        }
+        #content {
+            background-color: lightyellow;
+            
+            -webkit-transition: width 0.3s ease;
+            -moz-transition: width 0.3s ease;
+            -o-transition: width 0.3s ease;
+            transition: width 0.3s ease;
+        }
+        #content .btn-group {
+            margin-bottom: 10px;
+        }
+        .col-md-6 .width-9,
+        .col-md-6 .width-12,
+        .col-md-9 .width-6,
+        .col-md-9 .width-12,
+        .col-md-12 .width-6,
+        .col-md-12 .width-9 {
+            display: none; /* just hiding labels for demo purposes */
+        }
+        .sidebar {
+            background-color: lightgrey;
+            
+            -webkit-transition: margin 0.3s ease;
+            -moz-transition: margin 0.3s ease;
+            -o-transition: margin 0.3s ease;
+            transition: margin 0.3s ease;
+        }
+        .collapsed {
+            display: none; /* hide it for small displays */
+        }
+        @media (min-width: 502px) {
+            .collapsed {
+                display: block;
+            }
+            #sidebar-left.collapsed {
+                margin-left: -25%; /* same width as sidebar */
+            }
+            #sidebar-right.collapsed {
+                margin-right: -25%; /* same width as sidebar */
+            }
+        }
+    </style>
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <div id="topbar" style="width:100%; height:100px">
-        <button><i class="fa fa-align-justify fa-2x"></i></button>
-        <i class="fa fa-random fa-2x"></i>
-        <i class="fa fa-angle-double-left fa-2x"></i>
-        <i class="fa fa-play fa-2x"></i>
-        <i class="fa fa-pause fa-2x"></i>
-        <i class="fa fa-angle-double-right fa-2x"></i>
-        <i class="fa fa-refresh fa-2x"></i>
-    </div>
-    
-    <div id="parent">
-        <div id="A">
-            <img src="http://i.kinja-img.com/gawker-media/image/upload/m5g6imznbymcxkbpwpfc.jpg" width="200"></img>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed toggle-sidebar-left" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
-        <div id="B">
-            <div id="AIN"></div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li><a href="../navbar-static-top/">Static top</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+
+
+<!-- navigation sidebar -->
+        <div class="row" id="row-main">
+
+
+            <div class="col-md-3 sidebar" id="sidebar-left">
+                <h3>
+                    <p><code>#sidebar-left</code></p>
+                    <p><code>.col-md-3</code></p>
+                </h3>
+                
+            </div>
+
+
+            <div class="col-md-6" id="content">
+                <div id="control-stuff"></div>
+                <h3><code>#content</code> <code class="width-6">.col-md-6</code> <code class="width-9">.col-md-9</code> <code class="width-12">.col-md-12</code></h3>
+                <div class="btn-group" role="group" aria-label="Controls">
+                    <button type="button" class="btn btn-default ">Toggle left</button>
+                    <button type="button" class="btn btn-default toggle-sidebar-right">Toggle right</button>
+                </div>
+
+                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>
+            </div>
+            
+
+
+<!-- playlist sidebar -->
+            <div class="col-md-3 sidebar" id="sidebar-right">
+                <h3>
+                    <p>New Playlist</p>
+                </h3>
+
+            </div>
         </div>
     </div>
-
-
-
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function toggleSidebar(side) {
+                if (side !== "left" && side !== "right") {
+                    return false;
+                }
+                var left = $("#sidebar-left"),
+                    right = $("#sidebar-right"),
+                    content = $("#content"),
+                    openSidebarsCount = 0,
+                    contentClass = "";
+                
+                // toggle sidebar
+                if (side === "left") {
+                    left.toggleClass("collapsed");
+                } else if (side === "right") {
+                    right.toggleClass("collapsed");
+                }
+                
+                // determine number of open sidebars
+                if (!left.hasClass("collapsed")) {
+                    openSidebarsCount += 1;
+                }
+                
+                if (!right.hasClass("collapsed")) {
+                    openSidebarsCount += 1;
+                }
+                
+                // determine appropriate content class
+                if (openSidebarsCount === 0) {
+                    contentClass = "col-md-12";
+                } else if (openSidebarsCount === 1) {
+                    contentClass = "col-md-9";
+                } else {
+                    contentClass = "col-md-6";
+                }
+                
+                // apply class to content
+                content.removeClass("col-md-12 col-md-9 col-md-6")
+                       .addClass(contentClass);
+            }
+            $(".toggle-sidebar-left").click(function () {
+                toggleSidebar("left");
+                
+                return false;
+            });
+            $(".toggle-sidebar-right").click(function () {
+                toggleSidebar("right");
+                
+                return false;
+            });
+        });
+    </script>
 </body>
 
 </html>
