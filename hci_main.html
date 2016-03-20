@@ -66,6 +66,13 @@
     background: blue;
 }
 
+#parent{
+    position:absolute;
+    height:100%;
+    margin:0;
+    padding:0;
+    width:100%;
+}
   </style>
 
   <title></title>
@@ -85,7 +92,19 @@ function() {
 }, function() {
     $('#B').animate({left:200})
 })
+
+$("#A").resizable();
+$('#A').resize(function(){
+   $('#B').width($("#parent").width()-$("#A").width()); 
+});
+$(window).resize(function(){
+   $('#B').width($("#parent").width()-$("#A").width()); 
+   $('#A').height($("#parent").height()); 
+});
+
 });//]]> 
+
+
 
 </script>
 
@@ -102,13 +121,15 @@ function() {
         <i class="fa fa-angle-double-right fa-2x"></i>
         <i class="fa fa-refresh fa-2x"></i>
     </div>
-    <div id="A">
-        <h1>dkldsfk</h1>
+    
+    <div id="parent">
+        <div id="A">
+            <img src="http://i.kinja-img.com/gawker-media/image/upload/m5g6imznbymcxkbpwpfc.jpg" width="200"></img>
+        </div>
+        <div id="B">
+            <div id="AIN"></div>
+        </div>
     </div>
-    <div id="B">
-        <div id="AIN"></div>
-    </div>
-
 
 
 
