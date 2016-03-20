@@ -9,60 +9,82 @@
     <title>Bootstrap Collapsible Sidebars</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
     <style>
-.container {
-     padding-right: 0; /*15px in bootstrap.css*/
-     padding-left: 0;  /*idem*/
-     margin-right: 0 !important;
-     margin-left: 0 !important;
-     width: 100%;
-     height: 100% !important;
-}
+        #no{
+            float: left;
+            width: 100% !important;
+            height: 100% !important;
+            background: red;
+        }
 
-.top *{
+        .container {
+             padding-right: 0; /*15px in bootstrap.css*/
+             padding-left: 0;  /*idem*/
+             margin-right: 0 !important;
+             margin-left: 0 !important;
+             width: 100%;
+             height: 100% !important;
+        }
 
-    background-color: cyan;
-}
+        .top *{
+
+            background-color: cyan;
+        }
 
 
-#control-stuff{
-    width: 100%;
-    height: 100px;
-    background: red;
-}
+        #control-stuff{
+            width: 100%;
+            height: 50px;
+            background: red;
+            margin-top: 50px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        #control-stuff{
+            width: 100%;
+            height: 50px;
+            background: blue;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
         html,
         body {
             height: 100%;
+            max-height: 100%;
         }
-        .jumbotron {
-            margin-top: 30px;
-        }
+
         #content,
         .sidebar {
             min-height: 100% !important; 
         }
 
-#content{
-    overflow-y: scroll;
-    max-height: 100%;
-    margin-top: 50px; 
-}
+        #content-list{
+                overflow-y: scroll;
+                height: 80%;
+                position: absolute;
+                padding-right: 0;
+                padding-left: 15px;
+                width: 100%;
+        }
 
         #row-main {
             overflow-x: hidden; /* necessary to hide collapsed sidebars */
-            height: 100%;
+            height: 100% !important;
         }
         #content {
             background-color: lightyellow;
-            
+            padding-left: 0px;
             -webkit-transition: width 0.3s ease;
             -moz-transition: width 0.3s ease;
             -o-transition: width 0.3s ease;
             transition: width 0.3s ease;
         }
-        #content .btn-group {
-            margin-bottom: 10px;
-        }
+
         .col-md-6 .width-9,
         .col-md-6 .width-12,
         .col-md-9 .width-6,
@@ -73,7 +95,7 @@
         }
         .sidebar {
             background-color: lightgrey;
-            
+            overflow-y: scroll; 
             -webkit-transition: margin 0.3s ease;
             -moz-transition: margin 0.3s ease;
             -o-transition: margin 0.3s ease;
@@ -82,6 +104,7 @@
         .collapsed {
             display: none; /* hide it for small displays */
         }
+
         @media (min-width: 502px) {
             .collapsed {
                 display: block;
@@ -115,26 +138,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li><a href="../navbar-static-top/">Static top</a></li>
-            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -144,26 +150,61 @@
 
 <!-- navigation sidebar -->
         <div class="row" id="row-main">
-
+            <div id="fieldChooser" tabIndex="1" style="height:100%">
 
             <div class="col-md-3 sidebar" id="sidebar-left">
                 <h3>
                     <p><code>#sidebar-left</code></p>
                     <p><code>.col-md-3</code></p>
-                </h3>
-                
+                <div id="content-list">
+
+                </div>
             </div>
 
 
             <div class="col-md-6" id="content">
-                <div id="control-stuff"></div>
-                <h3><code>#content</code> <code class="width-6">.col-md-6</code> <code class="width-9">.col-md-9</code> <code class="width-12">.col-md-12</code></h3>
-                <div class="btn-group" role="group" aria-label="Controls">
-                    <button type="button" class="btn btn-default ">Toggle left</button>
-                    <button type="button" class="btn btn-default toggle-sidebar-right">Toggle right</button>
+                <div id="control-stuff">
+                    <form>
+                        <input type="text">
+                    </form>
+                </div>
+                <div id="control-stuff2">
+                    <form>
+                        <input type="text">
+                    </form>
                 </div>
 
-                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>                <h1>sdasdasd</h1>
+                <div class="col-md-12" id="content-list">
+                    <div id="sourceFields" style="width:100%;" class="fc-field-list ui-sortable fc-source-fields">
+                                        <div>First name</div>
+                <div>Last name</div>
+                <div>Home</div>
+                <div>Work</div>
+                <div>Direct</div>
+                <div>Cell</div>
+                <div>Fax</div>
+                <div>Work email</div>
+                <div>Personal email</div>
+                <div>Website</div>
+                                <div>Home</div>
+                <div>Work</div>
+                <div>Direct</div>
+                <div>Cell</div>
+                <div>Fax</div>
+                <div>Work email</div>
+                <div>Personal email</div>
+                <div>Website</div>
+                                <div>Home</div>
+                <div>Work</div>
+                <div>Direct</div>
+                <div>Cell</div>
+                <div>Fax</div>
+                <div>Work email</div>
+                <div>Personal email</div>
+                <div>Website</div>
+                    </div>
+
+                </div>
             </div>
             
 
@@ -173,14 +214,40 @@
                 <h3>
                     <p>New Playlist</p>
                 </h3>
+                        
+                    <button class="toggle-sidebar-right"></button>
+                <div class="col-md-12" id="content-list">
+                    <div id="destinationFields" style="width:100%;" class="fc-field-list ui-sortable fc-destination-fields">
+               
+                    </div>
 
+                </div>
             </div>
         </div>
     </div>
+</div>
+    </div>
+
+
+
+    <!-- SIDEBAR CONTROL STUFF -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <script src="fieldchooser/fieldChooser.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var $sourceFields = $("#sourceFields");
+            var $destinationFields = $("#destinationFields");
+            var $chooser = $("#fieldChooser").fieldChooser(sourceFields, destinationFields);
+        });
+    </script>
     <script>
         $(document).ready(function () {
+
+
+
             function toggleSidebar(side) {
                 if (side !== "left" && side !== "right") {
                     return false;
@@ -190,7 +257,7 @@
                     content = $("#content"),
                     openSidebarsCount = 0,
                     contentClass = "";
-                
+                    
                 // toggle sidebar
                 if (side === "left") {
                     left.toggleClass("collapsed");
@@ -220,6 +287,7 @@
                 content.removeClass("col-md-12 col-md-9 col-md-6")
                        .addClass(contentClass);
             }
+
             $(".toggle-sidebar-left").click(function () {
                 toggleSidebar("left");
                 
@@ -230,6 +298,9 @@
                 
                 return false;
             });
+            
+
+            // toggleSidebar("right");
         });
     </script>
 </body>
