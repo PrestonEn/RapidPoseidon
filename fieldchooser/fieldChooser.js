@@ -575,6 +575,8 @@
             }
         });
 
+
+
         $(document).keydown(function (event)
         {
             if (_currentList)
