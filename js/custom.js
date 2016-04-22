@@ -1,4 +1,26 @@
 $(document).ready(function() {
+
+    $('#albumMode').click(function (){
+        if($('#album_view').hasClass('kill') == false){
+            alert('teasd');     
+        }else{
+            $('#album_view').removeClass('kill');
+            $('.info_head').addClass('kill');
+            $('#draggable').addClass('kill');
+        }
+    });
+
+
+    $('#listMode').click(function (){
+        if($('#draggable').hasClass('kill') == false){
+        }else{
+            $('#album_view').addClass('kill');
+            $('.info_head').removeClass('kill');
+            $('#draggable').removeClass('kill');
+        }
+    });
+
+
     var selectedClass = 'ui-state-highlight',
         clickDelay = 600,
         // click time (milliseconds)
@@ -52,6 +74,8 @@ $(document).ready(function() {
                 top: 0,
                 left: 0
             });
+            $('.' + selectedClass).removeClass(
+                'ui-state-active');
             $('#background').addClass('kill');
         }
     });
@@ -77,6 +101,7 @@ $(document).ready(function() {
         // determine number of open sidebars
         if (!left.hasClass("collapsed")) {
             openSidebarsCount += 1;
+            $('#playname').focus()
         }
         if (!right.hasClass("collapsed")) {
             openSidebarsCount += 1;
@@ -115,6 +140,8 @@ $(document).ready(function() {
 
 
     $(".drag_item").dblclick(function() {
+                    document.getElementById('song_name').innerHTML = $('.ui-state-active div song_name').innerHTML;
+
         var id = window.setTimeout(function() {}, 0);
         while (id--) {
             window.clearTimeout(id); // will do nothing if no timeout with id is present
@@ -153,22 +180,34 @@ $(document).ready(function() {
             window.setTimeout(tick_function, tick_interval *
                 100);
         } else {
-
-            var index = $('.ui-state-active').index() + 1;
-            alert(index);
-
+        var id = window.setTimeout(function() {}, 0);
+        while (id--) {
+            window.clearTimeout(id); // will do nothing if no timeout with id is present
+        }
+        $("#progressbar").progressbar("value", 0);
+            var index = $('.ui-state-active').index();
+ 
             $('.ui-state-active').removeClass(
                 'ui-state-active');
 
-            $next = $( "#draggable" )[index];
-            alert($next.index());
+            $("#draggable li").eq(index+1).addClass('ui-state-active');
+            // alert($("#draggable li").eq(index+1).eq(0));
+            document.getElementById('song_name').innerHTML = $('.ui-state-active div song_name').innerHTML;
 
-            // window.setTimeout(tick_function, tick_interval *
-            // 100);
+            window.setTimeout(tick_function, tick_interval *
+            100);
         }
     };
 
     $('#playname').blur(function(){
-        alert('hey');
+        $("#").append('<li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
+
     })
+
+    $('.topbar_info').dblclick(function(){
+        alert("sorting by:" +this.innerHTML);
+    } );
+
+
+
 });

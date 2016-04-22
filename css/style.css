@@ -9,6 +9,10 @@ font-size: 1.2em;
     background-color: #95a5a6;
 }
 
+.ui-state-highlight{
+    background-color: #f39c12 !important;
+}
+
 .ui-state-active{
     background-color: #3498db !important;
 }
@@ -60,19 +64,19 @@ margin-bottom: 30px;
 }
 
 .kill{
-    display: hidden;
+    display: none;
 }
 #new_list{
     position: absolute;
     bottom: 30px;
     left: 30px;
-background-color: red;
+background-color: #f39c12;
 }
 
 #background {
    position: absolute;
    top: 50%;
-   left: 10px;
+   left: 10%;
 
    z-index: 0;
 }
@@ -139,7 +143,8 @@ ul{
     width: 100%;
     height: 50px;
     background: darkgrey;
-    margin-top: 50px;
+    margin-top: 60px;
+    padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -150,6 +155,7 @@ ul{
     background: darkgrey;
     padding-left: 15px;
     padding-right: 40px;
+    padding-bottom: 15px;
 }
 html,
 body {
@@ -243,6 +249,7 @@ form{
 
 #draggable{
                       background-color: #ecf0f1;
+                      overflow-y: scroll; 
 
 }
 #sidebar-right{
@@ -267,4 +274,8 @@ form{
 
 .navbar-nav li * {
     line-height: 50px;
+}
+
+#dropable li{
+    background-color: #7f8c8d !important;
 }

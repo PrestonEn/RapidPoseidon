@@ -75,9 +75,9 @@
                 </ul>
 
 
-                <div class="nav navbar-text" style=" margin-top:20px">
-                    <span id="now_play">Now Playing:</span> <strong><span id=
-                    "song_name">sdfkslfks</span></strong>
+                <div class="nav navbar-text" style=" margin-top:20px; color: #fff;">
+                    <span style="color: #fff;" id="now_play">Now Playing:</span> <strong><span id=
+                    "song_name" style="color: #fff; width:150px"></span></strong>
                 </div>
 
 
@@ -122,24 +122,33 @@
                     <button aria-controls="navbar" aria-expanded="false" class=
                     "navbar-toggle collapsed" data-target="#navbar" id=
                     "new_list" type="button">
-                    <div id="content-list">
-                    </div></button>
+                    <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+                    </button>
                 </div>
 
 
                 <div class="col-md-6" id="content">
                     <div id="control-stuff">
+                        <form style="float:left" action="">
+                            <button type="button" style="background-color: #333" id="listMode">
+                                <i class="fa fa-list fa-3x" style="background-color: #333" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" id="albumMode" style="background-color: #333">
+                                <i class="fa fa-th fa-3x" style="background-color: #333" aria-hidden="true"></i>
+                            </button>
+
+                        </form>
                         <form>
                             <label id="search"><i class=
                             "fa fa-search fa-3x"></i></label>
-                            <input placeholder="seach" type="text">
+                            <input placeholder="search" type="text">
                         </form>
                     </div>
 
 
                     <div class="col-md-12" id="content-list">
-                        <div class="row" id="album_view" style=
-                        "overflow-y:scroll;display:none">
+                        <div class="row kill" id="album_view" style=
+                        "overflow-y:scroll;">
                             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                                 <a class="thumbnail" href="#"><img alt=""
                                 class="img-responsive" height="300" src=
@@ -191,22 +200,22 @@
 
 
                         <div class="info_head">
-                            <div class="info_item highlight">
+                            <div class="info_item topbar_info song_name highlight">
                                 Song Title
                             </div>
 
 
-                            <div class="info_item">
+                            <div class="info_item topbar_info">
                                 Artist
                             </div>
 
 
-                            <div class="info_item highlight">
+                            <div class="info_item highlight topbar_info">
                                 Album
                             </div>
 
 
-                            <div class="info_item ">
+                            <div class="info_item topbar_info">
                                 Length
                             </div>
                         </div>
@@ -235,411 +244,7 @@
                                 </div>
                             </li>
 
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>
-
-
-                            <li class="drag_item">
-                                <div class="info_item">
-                                    This is a test
-                                </div>
-
-
-                                <div class="info_item">
-                                    ayy lmao
-                                </div>
-
-
-                                <div class="info_item">
-                                    cool stuff
-                                </div>
-
-
-                                <div class="info_item tohide">
-                                    10:00
-                                </div>
-                            </li>                            <li class="drag_item">
+                           <li class="drag_item">
                                 <div class="info_item">
                                     This is a test
                                 </div>
