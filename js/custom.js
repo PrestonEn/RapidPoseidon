@@ -208,6 +208,10 @@ $(document).ready(function() {
         alert("sorting by:" +this.innerHTML);
     } );
 
+    $('#new_in_files_button').click(function(){
+           $("#new_in_files").trigger('click');
+
+    });
 
 
 });
