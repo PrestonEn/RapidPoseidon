@@ -213,5 +213,21 @@ $(document).ready(function() {
 
     });
 
+    $('.playpause').click(function(){
+        if($('.playpause i').hasClass('fa-play')){
+            $('.playpause i').removeClass('fa-play');
+            $('.playpause i').addClass('fa-pause');
+
+        var id = window.setTimeout(function() {}, 0);
+        while (id--) {
+            window.clearTimeout(id); // will do nothing if no timeout with id is present
+        }
+
+        }else{
+            $('.playpause i').addClass('fa-play');
+            $('.playpause i').removeClass('fa-pause');
+        }
+
+    });
 
 });
