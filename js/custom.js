@@ -97,14 +97,18 @@ $(document).ready(function() {
             left.toggleClass("collapsed");
         } else if (side === "right") {
             right.toggleClass("collapsed");
+            if(right.hasClass('collapsed') == false){
+                                        $('#playname').focus();
+
+            }
         }
         // determine number of open sidebars
         if (!left.hasClass("collapsed")) {
             openSidebarsCount += 1;
-            $('#playname').focus()
         }
         if (!right.hasClass("collapsed")) {
             openSidebarsCount += 1;
+
         }
         // determine appropriate content class
         if (openSidebarsCount === 0) {
