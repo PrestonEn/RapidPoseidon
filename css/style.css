@@ -71,6 +71,11 @@ color: red;
 margin-bottom: 30px;
 }
 
+.topbar_info{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .kill{
     display: none;
 }

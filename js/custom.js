@@ -140,6 +140,8 @@ $(document).ready(function() {
 
 
     $(".drag_item").dblclick(function() {
+            $('.playpause i').removeClass('fa-play');
+            $('.playpause i').addClass('fa-pause');
                     document.getElementById('song_name').innerHTML = $('.ui-state-active div song_name').innerHTML;
 
         var id = window.setTimeout(function() {}, 0);
@@ -199,9 +201,10 @@ $(document).ready(function() {
         }
     };
 
-    $('#playname').blur(function(){
-        $("#").append('<li><a href="/user/messages"><span class="tab">Message Center</span></a></li>');
+        $("#listlist").append('<li id="playli"></li>');
 
+    $('#playname').blur(function(){
+         document.getElementById('playli').innerHTML = document.getElementById('playname').innerHTML;
     })
 
     $('.topbar_info').dblclick(function(){
@@ -218,16 +221,27 @@ $(document).ready(function() {
             $('.playpause i').removeClass('fa-play');
             $('.playpause i').addClass('fa-pause');
 
-        var id = window.setTimeout(function() {}, 0);
-        while (id--) {
-            window.clearTimeout(id); // will do nothing if no timeout with id is present
-        }
+
 
         }else{
             $('.playpause i').addClass('fa-play');
             $('.playpause i').removeClass('fa-pause');
+                    var id = window.setTimeout(function() {}, 0);
+        while (id--) {
+            window.clearTimeout(id); // will do nothing if no timeout with id is present
+        }
         }
 
+    });
+
+    $(".vol_btn").click(function(){
+        if($('.vol_btn').hasClass('fa-volume-up')){
+            $('.vol_btn').removeClass('fa-volume-up');
+            $('.vol_btn').addClass('fa-volume-off');
+        }else{
+                        $('.vol_btn').addClass('fa-volume-up');
+            $('.vol_btn').removeClass('fa-volume-off');
+        }
     });
 
 });
