@@ -499,19 +499,22 @@
 
             if (hitTest(_sourceList, ui.item, ui.offset))
             {
+                alert('one');
                 _currentList = _sourceList;
                 _sourceList.add(selection);
                 _destinationList.clearSelection();
-                _sourceList.trigger("selectionChanged", [_sourceList]);
+                //_sourceList.trigger("selectionChanged", [_sourceList]);
                 _chooser.trigger("listChanged", [selection, _sourceList]);
                 ui.item.after(selection).remove();
             }
             else if (hitTest(_destinationList, ui.item, ui.offset))
             {
+                alert('two');
                 ui.item.after(selection).remove();
             }
             else
             {
+                alert('three');
                 _destinationList.getSelection().remove();
                 _sourceList.add(selection);
                 _sourceList.scrollToField(selection);
@@ -623,6 +626,7 @@
                 { // escape
                     _currentList.selectAt(-1);
                 }
+
             }
         });
 
